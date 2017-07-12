@@ -1,5 +1,5 @@
 
-[Live on bitballoon](starfield.bitballoon.com)
+[Live on bitballoon!](https://starfield.bitballoon.com/)
 
 ## Key Resources
 
