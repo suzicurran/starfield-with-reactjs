@@ -3,7 +3,7 @@
 
 ## Key Resources
 
-[create-react-app](https://github.com/facebookincubator/create-react-app).
+[create-react-app](https://github.com/facebookincubator/create-react-app)
 
 [react-three-renderer](https://github.com/toxicFork/react-three-renderer)
 
