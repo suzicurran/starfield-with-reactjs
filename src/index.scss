@@ -1,0 +1,62 @@
+$grey-blue: #68808a;
+$warm-brown: #8a724c;
+$light-blue: #39addb;
+$dark-blue: #092756;
+$dark-red: #670d10;
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  background: -moz-radial-gradient(0% 100%, ellipse cover, rgba($grey-blue,.2) 10%,rgba($warm-brown,0) 40%),-moz-linear-gradient(top, rgba($light-blue,.25) 0%, rgba($dark-blue,.3) 100%), -moz-linear-gradient(-45deg, $dark-red 0%, $dark-blue 100%);
+  background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba($grey-blue,.2) 10%,rgba($warm-brown,0) 40%), -webkit-linear-gradient(top, rgba($light-blue,.25) 0%,rgba($dark-blue,.3) 100%), -webkit-linear-gradient(-45deg, $dark-red 0%,$dark-blue 100%);
+  background: -o-radial-gradient(0% 100%, ellipse cover, rgba($grey-blue,.2) 10%,rgba($warm-brown,0) 40%), -o-linear-gradient(top, rgba($light-blue,.25) 0%,rgba($dark-blue,.3) 100%), -o-linear-gradient(-45deg, $dark-red 0%,$dark-blue 100%);
+  background: -ms-radial-gradient(0% 100%, ellipse cover, rgba($grey-blue,.2) 10%,rgba($warm-brown,0) 40%), -ms-linear-gradient(top, rgba($light-blue,.25) 0%,rgba($dark-blue,.3) 100%), -ms-linear-gradient(-45deg, $dark-red 0%,$dark-blue 100%);
+  background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba($grey-blue,.2) 10%,rgba($warm-brown,0) 40%), linear-gradient(to bottom, rgba($light-blue,.25) 0%,rgba($dark-blue,.3) 100%), linear-gradient(135deg, $dark-red 0%,$dark-blue 100%);
+  font-family: 'Raleway', sans-serif;
+}
+
+#controls {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%
+}
+
+#controls label {
+  margin-right: 2px;
+}
+
+.controlGroup {
+  margin: 2px;
+}
+
+.labelCell {
+  text-align: right;
+}
+
+#starfield {
+  position: relative;
+  z-index: -1;
+}
+
+.swatch {
+  padding: 5px;
+  background: #fff;
+  borderRadius: 1px;
+  boxShadow: 0 0 0 1px rgba(0,0,0,.1);
+  display: inline-block;
+  cursor: pointer;
+}
+
+.popover {
+  position: absolute;
+  z-index: 2;
+}
+
+.cover {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
