@@ -69,6 +69,15 @@ const Controls = (props) => {
               </select>
             </td>
             <td className="labelCell">
+              <label>Star&nbsp;Behavior:</label>
+            </td>
+            <td className="controlGroup">
+              <select name="starBehavior" defaultValue={1} onChange={props.changeBehavior}>
+                <option value={1}>Twinkle</option>
+                <option value={2}>Jiggle</option>
+              </select>
+            </td>
+            <td className="labelCell">
               <label>Star&nbsp;Colors:</label>
             </td>
             {colorControls(props.currentColors, props.changeColor)}
