@@ -14,14 +14,14 @@ class Starfield extends React.Component {
 
     this.initializeCubes = (props) => {
       const cubes = [];
-      for(let i = 0; i < props.starCount; i++){
+      for(let i = 0; i < props.autoRenderControls.starCount; i++){
         const newCube = {
-          x: this.randomCubeX(props.spreadX),
-          y: this.randomCubeY(props.spreadY),
+          x: this.randomCubeX(props.autoRenderControls.spreadX),
+          y: this.randomCubeY(props.autoRenderControls.spreadY),
           z: this.randomCubeZ(),
           color: this.randomCubeColor(props.starColors),
           opacity: this.randomCubeOpacity(),
-          size: props.starSize
+          size: props.autoRenderControls.starSize
         };
         cubes.push(newCube);
       }
@@ -44,7 +44,8 @@ class Starfield extends React.Component {
     };
 
     this.randomCubeColor = (colors) => {
-      return colors[Math.floor(Math.random() * colors.length)];
+      // return colors[Math.floor(Math.random() * colors.length)];
+      return Math.floor(Math.random() * colors.length)
     };
 
     this.randomCubeOpacity = () => {
@@ -62,19 +63,42 @@ class Starfield extends React.Component {
       // pretend cubeRotation is immutable.
       // this helps with updates and pure rendering.
       // React will be sure that the rotation has now updated.
+      let getRandomArbitrary = (min, max) => {
+        return Math.random() * (max - min) + min;
+      }
+
+      let newCubes = this.state.cubes.map( (cube) => {
+        let offsetX = 0;
+        let offsetY = 0;
+        if (this.props.starBehavior === 2){
+          offsetX = getRandomArbitrary(-0.25, 0.25);
+          offsetY = getRandomArbitrary(-0.25, 0.25);
+        }
+        return {
+          x: cube.x + offsetX,
+          y: cube.y + offsetY,
+          z: cube.z,
+          color: cube.color,
+          opacity: cube.opacity,
+          size: cube.size
+        }
+      })
       this.setState({
         cubeRotation: new THREE.Euler(
           this.state.cubeRotation.x + 0.1,
           this.state.cubeRotation.y + 0.1,
           0
         ),
+        cubes: newCubes
       });
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!deepEqual(this.props, nextProps)) {
-      this.setState({cubes: this.initializeCubes(nextProps)});
+    if (!deepEqual(this.props.autoRenderControls, nextProps.autoRenderControls)) {
+      this.setState({
+        cubes: this.initializeCubes(nextProps)
+      });
     }
   }
 
@@ -88,7 +112,7 @@ class Starfield extends React.Component {
           <Cube
             rotation={this.state.cubeRotation}
             position={new THREE.Vector3(vals.x, vals.y, vals.z)}
-            color={vals.color}
+            color={this.props.starColors[vals.color]}
             opacity={vals.opacity}
             size={vals.size}
             key={index}
