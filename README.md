@@ -1,4 +1,6 @@
 
+# This project is no longer being maintained and exists only for reference.
+
 [Live on bitballoon!](https://starfield.bitballoon.com/)
 
 ## Key Resources
